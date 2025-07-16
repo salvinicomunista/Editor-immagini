@@ -1,0 +1,184 @@
+.node-highlight {
+  position: relative;
+  border-radius: 12px;
+  z-index: 10;
+  /* mantieni il background originale */
+  background: inherit;
+  /* metti un bordo trasparente per lasciare spazio al bordo animato */
+  border: 3px solid transparent;
+}
+
+.node-highlight::before {
+  content: "";
+  position: absolute;
+  top: -3px; left: -3px; right: -3px; bottom: -3px; /* spazio per il bordo */
+  border-radius: 15px; /* leggermente più grande per coprire il bordo */
+  padding: 3px;
+  background:
+    conic-gradient(
+      from 0deg,
+      #00fff7,
+      #00d4ff,
+      #00aaff,
+      #00fff7,
+      #00d4ff,
+      #00aaff,
+      #00fff7
+    );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  animation: rotate 4s linear infinite;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Stile per gli input attivi */
+.react-flow__node input[type="number"]:focus {
+  outline: 2px solid #1890ff;
+  outline-offset: 2px;
+}
+
+/* Evita la selezione del testo nel nodo */
+.react-flow__node {
+  user-select: none;
+}
+
+/* Permetti la selezione del testo negli input */
+.react-flow__node input {
+  user-select: text;
+}
+
+
+.params-widget {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 1001;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  width: 250px;
+}
+
+.params-widget h4 {
+  margin: 0;
+  margin-bottom: 12px;
+}
+
+.params-widget label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 12px;
+}
+
+.params-widget input[type="number"] {
+  width: 100%;
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid #d9d9d9;
+  margin-bottom: 12px;
+}
+
+.info-widget-header:hover {
+  background-color: #f5f5f5;
+}
+
+.info-widget {
+  transition: box-shadow 0.2s;
+}
+
+.info-widget:active {
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.sidebar {
+  background: #2c3e50;
+  color: white;
+  width: 300px;
+  height: 100vh;
+  padding: 15px;
+  overflow-y: auto;
+}
+
+.sidebar-menu {
+  margin-bottom: 10px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background: #34495e;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s;
+}
+
+.menu-header:hover {
+  background: #3d566e;
+}
+
+.menu-icon {
+  transition: transform 0.2s;
+}
+
+.menu-icon.open {
+  transform: rotate(90deg);
+}
+
+.menu-items {
+  background: #3d566e;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.menu-items.open {
+  max-height: 500px;
+}
+
+.menu-item {
+  padding: 10px 20px;
+  cursor: grab;
+  border-bottom: 1px solid #4a6a8a;
+  transition: background 0.2s;
+}
+
+.menu-item:hover {
+  background: #4a6a8a;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}

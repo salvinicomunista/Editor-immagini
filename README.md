@@ -1,54 +1,31 @@
-# React + TypeScript + Vite
+<h1>Image Editor</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project was created during my internship at Fondazione REI.
+It is a web interface that allows the user <b>to upload an image and apply a series of visual transformations through block-based logic, in a "flow editor" style.</b>
+The main objectives of this project are:
 
-Currently, two official plugins are available:
+• Create a local testing platform for computer vision solutions: The requirement is to have an internal company tool for experimenting and evaluating different approaches to image processing and editing in an agile manner.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+• Eliminate the need for experimental programming : Often, when tackling a potential computer vision problem (for example, a company with a new visual analytics requirement), it is essential to quickly test different strategies. These may include converting to black and white, adjusting contrast, applying specific filters, or other transformations to determine which solution works best. My goal is to centralize these tests, avoiding the need to write code for each individual experiment, thus saving significant time and resources.
 
-## Expanding the ESLint configuration
+• Facilitate rapid prototyping: The platform allows researchers or developers to upload images and apply different modifications or algorithms in real time, to immediately evaluate the impact and effectiveness of the changes. This accelerates the trial and error cycle.
+In short, my goal is to provide the company with a virtual laboratory for computer vision, a versatile platform that accelerates the process of innovation and response to technical challenges.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+The main technologies I used were React with TypeScript and React Flow for the front-end (to handle block logic) and FastAPI with OpenCV for the back-end (for image processing).
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+<h2>How Block Logic Works</h2>
+The user experience is straightforward and follows a logical sequence of steps:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. The user uploads an image to the input node.
+2. Drags a function node, connects it, and selects the type of transformation to apply.
+3. Adds and connects an output node.
+4. By clicking the "RUN" button in the output node:
+    <ul>
+      <li>o The front-end sends the image and information about the selected function.</li>
+      <li>o The back-end (built with Python and Flask) processes the image and returns the processed result.</li>
+      <li>o The front-end renders the output image.</li>
+    </ul>
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+<img width="1004" height="503" alt="image" src="https://github.com/user-attachments/assets/dcd6d0b9-5795-4ba5-a96d-64146064a135" />
+

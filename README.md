@@ -14,7 +14,7 @@ In short, my goal is to provide the company with a virtual laboratory for comput
 The main technologies I used were React with TypeScript and React Flow for the front-end (to handle block logic) and FastAPI with OpenCV for the back-end (for image processing).
 
 
-<h2>How Block Logic Works</h2>
+<h3>How Block Logic Works</h3>
 The user experience is straightforward and follows a logical sequence of steps:
 
 1. The user uploads an image to the input node.
@@ -27,5 +27,45 @@ The user experience is straightforward and follows a logical sequence of steps:
       <li>o The front-end renders the output image.</li>
     </ul>
 
+<br><br>
+
 <img width="1004" height="503" alt="image" src="https://github.com/user-attachments/assets/dcd6d0b9-5795-4ba5-a96d-64146064a135" />
+
+<br><br>
+
+In this project for now there are 16 functions:
+<ul>
+    <li>Grayscale</li>
+    <li> Blur</li>
+    <li> Blue / Red /Green Channel (color filters)</li>
+    <li> Rotating</li>
+    <li> Canny</li>
+    <li> Threshold</li>
+    <li> Color Quantization</li>
+    <li> Cartoon</li>
+    <li> Histogram Equalization</li>
+    <li> Sharpen</li>
+    <li> Fourier Transform</li>
+    <li> Edge Detection</li>
+    <li> Stylisation</li>
+    <li> Perspective Transform.</li>
+</ul>
+
+<br><br>
+
+<h2>Here are some examples</h2>
+
+<br><br>
+<h3>Canny</h3>
+<img width="1082" height="1025" alt="image" src="https://github.com/user-attachments/assets/eca1177c-ff87-494f-82eb-1543a59313e7" />
+
+<br><br>
+<br><br>
+
+<h3>Fourier Transform</h3>
+<img width="1282" height="1125" alt="image" src="https://github.com/user-attachments/assets/f08c0e4d-4bef-4fcc-8f4a-b29a176a5fb2" />
+
+
+
+
 
